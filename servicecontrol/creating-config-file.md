@@ -40,6 +40,15 @@ Default: `33333`.
 Warning: If the `ServiceControl/Port` setting is changed and the `ServiceControl/DbPath` setting is not set then the path of the embedded RavenDB is changed. Refer to [Customize RavenDB Embedded Location](configure-ravendb-location.md).
 
 
+#### ServiceControl/DatabaseMaintenancePort
+
+The port to bind the RavenDB when in maintenance mode or [RavenDB is exposed](creating-config-file.md#troubleshooting-servicecontrolexposeravendb). This setting is only applicable from Version 2 and above.
+
+Type: int
+
+Default: `33334`.
+
+
 #### ServiceControl/VirtualDirectory
 
 The virtual directory to bind the embedded HTTP server to, modify to bind to a specific virtual directory.
@@ -200,6 +209,8 @@ Valid range for this setting is minimum 1 hour and maximum 200 days.
 
 
 #### ServiceControl/MaximumMessageThroughputPerSecond
+
+NOTE: This setting is not applicable in Version 2 and above.
 
 This setting was introduced in Version 1.5. The setting controls the maximum throughput of messages ServiceControl will handle per second and is necessary to avoid overloading the underlying messages database. An appropriate limit ensures that the database can cope with number of insert operations. Otherwise the query performance would drop significantly and the message expiration process would stop working when under heavy insert load. Make sure to conduct thorough performance tests on the hardware before increasing this value.
 
